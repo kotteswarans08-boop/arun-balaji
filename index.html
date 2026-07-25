@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Balaji Party Hall &amp; Day To Day Catering Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#4a0e1f;
+    --maroon-dark:#2c0812;
+    --maroon-deep:#1c050c;
+    --gold:#c9a227;
+    --gold-light:#e9cd7a;
+    --gold-pale:#f5e6b8;
+    --cream:#fbf6ec;
+    --ivory:#faf7f0;
+    --charcoal:#241d18;
+    --muted:#8a7a63;
+    --line:rgba(201,162,39,0.25);
+    --shadow: 0 20px 50px rgba(28,5,12,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost', sans-serif;
+    background:var(--ivory);
+    color:var(--charcoal);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    color:var(--maroon-dark);
+    line-height:1.1;
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{display:block;max-width:100%;}
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .eyebrow{
+    font-family:'Poppins',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    color:var(--gold);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:26px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  /* Arch motif divider - signature element */
+  .arch-row{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin:14px 0 6px;
+  }
+  .arch-row svg{opacity:.85;}
+
+  /* ===== TOP BAR ===== */
+  .topbar{
+    background:var(--maroon-deep);
+    color:var(--gold-pale);
+    font-family:'Poppins',sans-serif;
+    font-size:12.5px;
+    letter-spacing:.4px;
+  }
+  .topbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:8px;
+    padding-bottom:8px;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .topbar .left-info{display:flex;gap:22px;flex-wrap:wrap;color:rgba(250,240,216,.75);}
+  .topbar .phone-cta{
+    color:var(--gold-light);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .topbar .phone-cta svg{width:14px;height:14px;fill:var(--gold-light);}
+
+  /* ===== HEADER / NAV ===== */
+  header.main-nav{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(251,246,236,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{
+    display:flex;flex-direction:column;line-height:1;
+  }
+  .brand .name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;font-weight:700;color:var(--maroon-dark);
+    letter-spacing:.5px;
+  }
+  .brand .tag{
+    font-family:'Poppins',sans-serif;
+    font-size:10px;letter-spacing:3px;
+    color:var(--gold);text-transform:uppercase;margin-top:4px;
+  }
+  nav.desktop-links{display:flex;gap:38px;}
+  nav.desktop-links a{
+    font-family:'Poppins',sans-serif;
+    font-size:13.5px;font-weight:500;
+    letter-spacing:.5px;
+    color:var(--charcoal);
+    position:relative;
+    padding:6px 0;
+    transition:color .25s;
+  }
+  nav.desktop-links a::after{
+    content:'';position:absolute;left:0;bottom:0;
+    width:0;height:2px;background:var(--gold);
+    transition:width .3s;
+  }
+  nav.desktop-links a:hover, nav.desktop-links a.active{color:var(--maroon);}
+  nav.desktop-links a:hover::after, nav.desktop-links a.active::after{width:100%;}
+
+  .nav-right{display:flex;align-items:center;gap:20px;}
+  .nav-cta{
+    background:var(--maroon);
+    color:var(--gold-pale);
+    font-family:'Poppins',sans-serif;
+    font-size:13px;font-weight:600;
+    padding:11px 22px;
+    border-radius:2px;
+    border:1px solid var(--maroon);
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:transparent;color:var(--maroon);}
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;border:none;cursor:pointer;
+    padding:6px;
+  }
+  .hamburger span{
+    width:26px;height:2px;background:var(--maroon-dark);
+    transition:all .3s;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:var(--maroon-dark);
+    position:fixed;top:0;right:0;
+    width:78%;max-width:320px;height:100vh;
+    padding:90px 32px 32px;
+    transform:translateX(100%);
+    transition:transform .4s ease;
+    z-index:1100;
+    gap:6px;
+  }
+  .mobile-menu.show{transform:translateX(0);}
+  .mobile-menu a{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;color:var(--gold-pale);
+    padding:14px 0;
+    border-bottom:1px solid rgba(233,205,122,.15);
+  }
+  .mobile-menu .phone-cta{
+    margin-top:24px;color:var(--gold-light);font-family:'Poppins',sans-serif;
+    font-size:14px;display:flex;gap:8px;align-items:center;
+  }
+  .overlay{
+    display:none;
+    position:fixed;inset:0;background:rgba(28,5,12,.55);
+    z-index:1050;
+  }
+  .overlay.show{display:block;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(120deg, rgba(28,5,12,.82) 10%, rgba(74,14,31,.55) 55%, rgba(28,5,12,.75) 100%),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:var(--cream);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse at 30% 20%, rgba(233,205,122,.12), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    max-width:760px;
+    padding:120px 24px 90px;
+  }
+  .hero .eyebrow{color:var(--gold-light);}
+  .hero .eyebrow::before{background:var(--gold-light);}
+  .hero h1{
+    font-size:clamp(38px,6vw,66px);
+    color:var(--cream);
+    margin:18px 0 10px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--gold-light);
+  }
+  .hero p.lead{
+    font-size:18px;font-weight:300;
+    color:rgba(251,246,236,.85);
+    max-width:520px;margin-bottom:36px;
+    line-height:1.7;
+  }
+  .hero-buttons{display:flex;gap:18px;flex-wrap:wrap;}
+  .btn{
+    font-family:'Poppins',sans-serif;
+    font-size:13.5px;font-weight:600;letter-spacing:.4px;
+    padding:16px 30px;
+    border-radius:2px;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:all .3s;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-gold{background:var(--gold);color:var(--maroon-deep);}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-outline{border-color:var(--gold-light);color:var(--gold-pale);background:transparent;}
+  .btn-outline:hover{background:rgba(233,205,122,.12);transform:translateY(-2px);}
+
+  .hero-arch-motif{
+    position:absolute;bottom:0;left:0;width:100%;
+    line-height:0;z-index:2;
+  }
+
+  /* ===== SECTION GENERIC ===== */
+  section{padding:100px 0;position:relative;}
+  .section-head{
+    text-align:center;max-width:640px;margin:0 auto 56px;
+  }
+  .section-head h2{font-size:clamp(30px,4vw,44px);margin-top:14px;}
+  .section-head p{
+    margin-top:16px;color:var(--muted);font-size:16px;line-height:1.7;
+  }
+
+  /* ===== ABOUT + STATS ===== */
+  .about-section{background:var(--ivory);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  }
+  .about-text p{color:var(--charcoal);opacity:.85;font-size:16px;line-height:1.9;margin-bottom:16px;}
+  .about-img{position:relative;}
+  .about-img img{
+    border-radius:4px;box-shadow:var(--shadow);
+    width:100%;height:420px;object-fit:cover;
+  }
+  .about-img .frame{
+    position:absolute;top:-18px;left:-18px;right:18px;bottom:18px;
+    border:1.5px solid var(--gold);
+    border-radius:4px;z-index:-1;
+  }
+
+  .stats-grid{
+    margin-top:80px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:48px 0;
+  }
+  .stat{
+    text-align:center;border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;font-weight:700;color:var(--maroon);
+  }
+  .stat .num span{color:var(--gold);}
+  .stat .label{
+    font-family:'Poppins',sans-serif;font-size:12.5px;
+    letter-spacing:1px;text-transform:uppercase;color:var(--muted);
+    margin-top:6px;
+  }
+
+  /* ===== PARTY HALL / CATERING SECTIONS ===== */
+  .dark-section{
+    background:var(--maroon-deep);
+    color:var(--cream);
+  }
+  .dark-section .section-head p{color:rgba(251,246,236,.65);}
+  .dark-section .eyebrow{color:var(--gold-light);}
+  .dark-section .eyebrow::before{background:var(--gold-light);}
+  .dark-section h2{color:var(--cream);}
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:150px;
+    gap:14px;
+    margin-bottom:56px;
+  }
+  .gallery-grid img{
+    width:100%;height:100%;object-fit:cover;border-radius:3px;
+    transition:transform .5s ease, filter .5s ease;
+    filter:saturate(0.95);
+  }
+  .gallery-grid a{overflow:hidden;border-radius:3px;display:block;}
+  .gallery-grid a:hover img{transform:scale(1.08);filter:saturate(1.1);}
+  .gallery-grid .g1{grid-column:span 2;grid-row:span 2;}
+  .gallery-grid .g2{grid-column:span 2;}
+  .gallery-grid .g5{grid-column:span 2;}
+
+  .highlights{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .highlight-card{
+    background:rgba(251,246,236,.04);
+    border:1px solid rgba(233,205,122,.2);
+    padding:28px 20px;text-align:center;border-radius:4px;
+    transition:border-color .3s, background .3s;
+  }
+  .highlight-card:hover{border-color:var(--gold);background:rgba(233,205,122,.06);}
+  .highlight-card svg{width:34px;height:34px;fill:none;stroke:var(--gold-light);stroke-width:1.4;margin-bottom:14px;}
+  .highlight-card h4{color:var(--gold-pale);font-size:19px;margin-bottom:6px;font-weight:600;}
+  .highlight-card p{font-size:13.5px;color:rgba(251,246,236,.55);line-height:1.5;}
+
+  /* Catering menu */
+  .catering-section{background:var(--cream);}
+  .catering-section .section-head p{color:var(--muted);}
+  .menu-tabs{
+    display:flex;justify-content:center;gap:14px;margin-bottom:44px;flex-wrap:wrap;
+  }
+  .menu-tab{
+    font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;
+    padding:10px 22px;border:1px solid var(--line);border-radius:30px;
+    background:transparent;cursor:pointer;transition:all .25s;
+    color:var(--charcoal);
+  }
+  .menu-tab.active,.menu-tab:hover{background:var(--maroon);color:var(--gold-pale);border-color:var(--maroon);}
+  .menu-panel{display:none;}
+  .menu-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .menu-item{
+    background:var(--ivory);border:1px solid var(--line);
+    border-radius:4px;padding:22px;
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:12px;
+  }
+  .menu-item .mi-name{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--maroon-dark);font-weight:600;}
+  .menu-item .mi-desc{font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .menu-item .mi-dot{flex:1;border-bottom:1.5px dotted var(--line);margin:0 8px;}
+
+  .catering-gallery{margin-top:60px;}
+
+  /* ===== CONTACT ===== */
+  .contact-section{background:var(--ivory);}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+    align-items:stretch;
+  }
+  .contact-card{
+    background:var(--maroon-dark);color:var(--cream);
+    border-radius:6px;padding:44px 40px;
+    display:flex;flex-direction:column;gap:26px;
+  }
+  .contact-card h3{color:var(--gold-pale);font-size:26px;}
+  .contact-row{display:flex;gap:16px;align-items:flex-start;}
+  .contact-row svg{width:20px;height:20px;fill:none;stroke:var(--gold-light);stroke-width:1.5;flex-shrink:0;margin-top:2px;}
+  .contact-row .clabel{font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:4px;}
+  .contact-row .cval{font-size:15.5px;color:rgba(251,246,236,.9);line-height:1.6;}
+  .map-embed{border-radius:6px;overflow:hidden;box-shadow:var(--shadow);min-height:220px;}
+  .map-embed iframe{width:100%;height:100%;min-height:220px;border:0;display:block;}
+
+  .form-card{
+    background:#fff;border:1px solid var(--line);border-radius:6px;padding:44px 40px;
+  }
+  .form-card h3{margin-bottom:6px;font-size:26px;}
+  .form-card p{color:var(--muted);font-size:14px;margin-bottom:26px;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-grid .full{grid-column:1/-1;}
+  label{
+    display:block;font-family:'Poppins',sans-serif;font-size:11.5px;
+    letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+  }
+  input,select,textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--line);
+    border-radius:3px;font-family:'Jost',sans-serif;font-size:14.5px;
+    background:var(--ivory);color:var(--charcoal);
+    transition:border-color .25s;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
+  textarea{resize:vertical;min-height:90px;}
+  .form-card .btn{margin-top:20px;width:100%;justify-content:center;background:var(--maroon);color:var(--gold-pale);}
+  .form-card .btn:hover{background:var(--maroon-dark);}
+  .form-success{
+    display:none;margin-top:16px;padding:14px;border-radius:4px;
+    background:rgba(201,162,39,0.12);border:1px solid var(--gold);
+    font-size:13.5px;color:var(--maroon-dark);text-align:center;
+  }
+  .form-success.show{display:block;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--maroon-deep);color:rgba(251,246,236,.6);
+    padding:40px 0;text-align:center;font-size:13px;
+    font-family:'Poppins',sans-serif;
+  }
+  footer .fname{color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:20px;display:block;margin-bottom:8px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:920px){
+    nav.desktop-links{display:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .about-grid{grid-template-columns:1fr;gap:40px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat{border-right:none;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:16px;}
+    .stat:nth-child(2n){border-right:none;}
+    .highlights{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;}
+    .gallery-grid .g1{grid-column:span 2;grid-row:span 1;}
+    .menu-panel.active{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .topbar .left-info{display:none;}
+    .hero-content{padding:100px 20px 70px;}
+    .hero p.lead{font-size:16px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="left-info">
+      <span>Email: booking@arunbalajipartyhall.com</span>
+      <span>Free Site Visit &amp; Menu Tasting</span>
+    </div>
+    <a href="tel:+919876543210" class="phone-cta">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
+      Call Now: 044-27225377
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="main-nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="name">Arun Balaji</span>
+      <span class="tag">Party Hall &amp; Day To Day Catering</span>
+    </a>
+    <nav class="desktop-links" id="desktopLinks">
+      <a href="#hall" data-link>Party Hall</a>
+      <a href="#catering" data-link>Catering</a>
+      <a href="#about" data-link>About Us</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Enquire Now</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#hall" data-link>Party Hall</a>
+  <a href="#catering" data-link>Catering</a>
+  <a href="#about" data-link>About Us</a>
+  <a href="#contact" data-link>Contact</a>
+  <div class="phone-cta">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="#e9cd7a"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
+    +91 98765 43210
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">Weddings &amp; Celebrations, Curated with Care</span>
+    <h1>Grand Celebrations,<br><em>Unforgettable</em> Flavours</h1>
+    <p class="lead">Arun Balaji Party Hall and Day To Day Catering Services come together to host your wedding, reception, or celebration &mdash; one iconic venue, one exceptional kitchen, zero compromises.</p>
+    <div class="hero-buttons">
+      <a href="#hall" class="btn btn-gold">Book Party Hall</a>
+      <a href="#catering" class="btn btn-outline">Explore Catering</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + STATS -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="frame"></div>
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80" alt="Arun Balaji Party Hall decorated interior">
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">Our Story</span>
+        <h2 style="margin:14px 0 20px;">Two Names, One Promise of Perfection</h2>
+        <p>For over a decade, Arun Balaji Party Hall has opened its doors to weddings, receptions, birthdays, and corporate gatherings, offering a spacious, elegant setting built for celebration.</p>
+        <p>Alongside, Day To Day Catering Services brings authentic South Indian and multi-cuisine hospitality to every table &mdash; from live counters to traditional banana-leaf feasts &mdash; ensuring every guest leaves delighted.</p>
+        <p>Together, we handle the venue and the feast so you can simply enjoy the occasion.</p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat"><div class="num">1,500<span>+</span></div><div class="label">Orders Delivered</div></div>
+      <div class="stat"><div class="num">500<span>+</span></div><div class="label">Events Hosted</div></div>
+      <div class="stat"><div class="num">10<span>+</span></div><div class="label">Years of Experience</div></div>
+      <div class="stat"><div class="num">1,200<span>+</span></div><div class="label">Guest Capacity</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTY HALL -->
+<section class="dark-section" id="hall">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Venue</span>
+      <h2>Arun Balaji Party Hall</h2>
+      <div class="arch-row">
+        <svg width="70" height="20" viewBox="0 0 70 20"><path d="M2 20 C2 8 68 8 68 20" fill="none" stroke="#c9a227" stroke-width="1.3"/></svg>
+      </div>
+      <p>A spacious, air-conditioned hall designed for grand South Indian weddings and celebrations, with a dedicated stage, ample parking, and a private guest suite &mdash; hosting only one event at a time for complete exclusivity.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <a href="#" class="g1"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Party hall stage setup"></a>
+      <a href="#" class="g2"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding hall seating arrangement"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1478146059778-26028b07395a?auto=format&fit=crop&w=600&q=80" alt="Hall lighting decor"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=600&q=80" alt="Reception hall chairs"></a>
+      <a href="#" class="g5"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Grand entrance decoration"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Event florals"></a>
+    </div>
+
+    <div class="highlights">
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v3H3v-3z"/><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M3 21v-3M21 21v-3"/></svg>
+        <h4>Full A/C Comfort</h4>
+        <p>Climate-controlled main hall &amp; prefunction area for guest comfort year-round.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24"><path d="M9 18V6l10 6-10 6z"/><rect x="3" y="5" width="3" height="14"/></svg>
+        <h4>Premium Sound &amp; Stage</h4>
+        <p>Professional sound system, lighting rig, and a dedicated elevated stage.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><circle cx="7.5" cy="16.5" r="1"/><circle cx="16.5" cy="16.5" r="1"/></svg>
+        <h4>Ample Parking</h4>
+        <p>Secure on-site parking for cars and two-wheelers with valet on request.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        <h4>Private Guest Suites</h4>
+        <p>Comfortable bride &amp; groom suites for getting ready in privacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="catering-section" id="catering">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Feast</span>
+      <h2>Day To Day Catering Services</h2>
+      <div class="arch-row">
+        <svg width="70" height="20" viewBox="0 0 70 20"><path d="M2 20 C2 8 68 8 68 20" fill="none" stroke="#4a0e1f" stroke-width="1.3"/></svg>
+      </div>
+      <p>Authentic South Indian &amp; multi-cuisine menus, live counters, and traditional banana-leaf service &mdash; crafted fresh for every wedding, reception, and celebration.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-menu="starters">Starters</button>
+      <button class="menu-tab" data-menu="main">Main Course</button>
+      <button class="menu-tab" data-menu="desserts">Desserts</button>
+    </div>
+
+    <div class="menu-panel active" id="starters">
+      <div class="menu-item"><div><div class="mi-name">Gobi 65</div><div class="mi-desc">Crispy fried cauliflower, South Indian spice</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Chicken Chettinad Starter</div><div class="mi-desc">Spiced dry-roasted chicken bites</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Paneer Tikka</div><div class="mi-desc">Char-grilled cottage cheese skewers</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Sweet Corn Soup</div><div class="mi-desc">Live counter, served hot</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Baby Corn Manchurian</div><div class="mi-desc">Indo-Chinese live counter favorite</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Fish Fry</div><div class="mi-desc">Coastal-style marinated fish</div></div><div class="mi-dot"></div></div>
+    </div>
+
+    <div class="menu-panel" id="main">
+      <div class="menu-item"><div><div class="mi-name">Traditional Banana Leaf Meal</div><div class="mi-desc">Sambar, rasam, kootu, poriyal &amp; more</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Biryani Live Counter</div><div class="mi-desc">Mutton, chicken &amp; veg dum biryani</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Chapati &amp; Kurma</div><div class="mi-desc">Soft chapatis with mixed veg kurma</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Curd Rice &amp; Pickle</div><div class="mi-desc">Classic South Indian comfort finish</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Chicken Chettinad Curry</div><div class="mi-desc">Rich, spiced gravy specialty</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Dal Tadka</div><div class="mi-desc">Slow-cooked lentils, ghee tempering</div></div><div class="mi-dot"></div></div>
+    </div>
+
+    <div class="menu-panel" id="desserts">
+      <div class="menu-item"><div><div class="mi-name">Semiya Payasam</div><div class="mi-desc">Vermicelli in sweet milk, cardamom</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Gulab Jamun</div><div class="mi-desc">Warm, syrup-soaked classic</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Fruit Salad with Ice Cream</div><div class="mi-desc">Fresh seasonal fruit, live counter</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Rava Kesari</div><div class="mi-desc">Semolina sweet, saffron &amp; ghee</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Badam Halwa</div><div class="mi-desc">Rich almond halwa</div></div><div class="mi-dot"></div></div>
+      <div class="menu-item"><div><div class="mi-name">Live Ice Cream Counter</div><div class="mi-desc">Assorted flavours, made to order</div></div><div class="mi-dot"></div></div>
+    </div>
+
+    <div class="gallery-grid catering-gallery">
+      <a href="#" class="g1"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Banana leaf feast"></a>
+      <a href="#" class="g2"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Buffet setup"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Live cooking counter"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80" alt="South Indian dishes"></a>
+      <a href="#" class="g5"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" alt="Catering dessert spread"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=600&q=80" alt="Plated dish"></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Plan Your Celebration With Us</h2>
+      <div class="arch-row">
+        <svg width="70" height="20" viewBox="0 0 70 20"><path d="M2 20 C2 8 68 8 68 20" fill="none" stroke="#4a0e1f" stroke-width="1.3"/></svg>
+      </div>
+      <p>Reach out for a site visit, menu tasting, or booking enquiry &mdash; our team responds within 24 hours.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <div class="contact-card">
+          <h3>Arun Balaji Party Hall &amp; Day To Day Catering</h3>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
+            <div><div class="clabel">Phone</div><div class="cval">+91 9751323210 &nbsp;/&nbsp; +91 9360123457</div></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <div><div class="clabel">Email</div><div class="cval">daytodaykpm@gmail.com</div></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><div class="clabel">Address</div><div class="cval">No 7 Karpaga Vinayakar Koil St, Periya Kanchipuram, Tamil Nadu 631502</div></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><div class="clabel">Hours</div><div class="cval">Open Daily &middot; 9:00 AM &ndash; 9:00 PM</div></div>
+          </div>
+        </div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q=Sriperumbudur,Tamil%20Nadu,India&output=embed" loading="lazy" allowfullscreen title="Location Map"></iframe>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Booking Enquiry</h3>
+        <p>Tell us about your event and we'll get back to you shortly.</p>
+        <form id="enquiryForm">
+          <div class="form-grid">
+            <div>
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" required placeholder="Your name">
+            </div>
+            <div>
+              <label for="fphone">Phone Number</label>
+              <input type="tel" id="fphone" required placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="full">
+              <label for="fservice">Interested In</label>
+              <select id="fservice">
+                <option>Party Hall Booking</option>
+                <option>Catering Service</option>
+                <option>Both Hall &amp; Catering</option>
+              </select>
+            </div>
+            <div>
+              <label for="fdate">Event Date</label>
+              <input type="date" id="fdate">
+            </div>
+            <div>
+              <label for="fguests">Guest Count</label>
+              <input type="number" id="fguests" placeholder="e.g. 300">
+            </div>
+            <div class="full">
+              <label for="fmsg">Message</label>
+              <textarea id="fmsg" placeholder="Tell us about your event..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn">Send Enquiry</button>
+          <div class="form-success" id="formSuccess">Thank you! Your enquiry has been received &mdash; our team will contact you within 24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span class="fname">Arun Balaji Party Hall &amp; Day To Day Catering Services</span>
+    &copy; <span id="year"></span> All Rights Reserved. Crafted for your celebrations.
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+
+  function closeMenu(){
+    hamburgerBtn.classList.remove('open');
+    mobileMenu.classList.remove('show');
+    overlay.classList.remove('show');
+  }
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('show');
+    hamburgerBtn.classList.toggle('open', isOpen);
+    overlay.classList.toggle('show', isOpen);
+  });
+  overlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Active scroll highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('[data-link]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      if(window.scrollY >= top){ current = sec.getAttribute('id'); }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === '#' + current){ link.classList.add('active'); }
+    });
+  });
+
+  // Animated stat counters
+  const statNums = document.querySelectorAll('.stat .num');
+  const targets = [1500, 500, 10, 1200];
+  let animated = false;
+  function animateCounters(){
+    if(animated) return;
+    animated = true;
+    statNums.forEach((el, i) => {
+      const target = targets[i];
+      const suffixEl = el.querySelector('span');
+      const suffix = suffixEl ? suffixEl.outerHTML : '';
+      let start = 0;
+      const duration = 1400;
+      const startTime = performance.now();
+      function tick(now){
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * target);
+        el.innerHTML = value.toLocaleString() + suffix;
+        if(progress < 1){ requestAnimationFrame(tick); }
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+  const statsSection = document.querySelector('.stats-grid');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting){ animateCounters(); } });
+  }, { threshold: 0.4 });
+  observer.observe(statsSection);
+
+  // Menu tabs
+  const menuTabs = document.querySelectorAll('.menu-tab');
+  const menuPanels = document.querySelectorAll('.menu-panel');
+  menuTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      menuTabs.forEach(t => t.classList.remove('active'));
+      menuPanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.menu).classList.add('active');
+    });
+  });
+
+  // Enquiry form
+  document.getElementById('enquiryForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formSuccess').classList.add('show');
+    this.reset();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
