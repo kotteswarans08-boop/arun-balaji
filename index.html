@@ -108,8 +108,13 @@
     padding:16px 24px;
   }
   .brand{
-    display:flex;flex-direction:column;line-height:1;
+    display:flex;align-items:center;gap:12px;line-height:1;
   }
+  .brand img.logo-mark{
+    height:46px;width:46px;object-fit:cover;border-radius:50%;
+    box-shadow:0 0 0 1px var(--gold), 0 4px 12px rgba(28,5,12,.25);
+  }
+  .brand .brand-text{display:flex;flex-direction:column;line-height:1;}
   .brand .name{
     font-family:'Cormorant Garamond',serif;
     font-size:26px;font-weight:700;color:var(--maroon-dark);
@@ -179,6 +184,10 @@
     gap:6px;
   }
   .mobile-menu.show{transform:translateX(0);}
+  .mobile-menu .mobile-logo{
+    width:64px;height:64px;border-radius:50%;object-fit:cover;
+    box-shadow:0 0 0 1px var(--gold);margin-bottom:10px;
+  }
   .mobile-menu a{
     font-family:'Cormorant Garamond',serif;
     font-size:24px;color:var(--gold-pale);
@@ -253,6 +262,30 @@
   .hero-arch-motif{
     position:absolute;bottom:0;left:0;width:100%;
     line-height:0;z-index:2;
+  }
+
+  .hero-video-card{
+    position:absolute;
+    right:6%;bottom:8%;
+    width:180px;
+    border-radius:8px;
+    overflow:hidden;
+    border:1.5px solid var(--gold);
+    box-shadow:var(--shadow);
+    z-index:3;
+    background:var(--maroon-deep);
+  }
+  .hero-video-card video{
+    width:100%;display:block;aspect-ratio:1/1;object-fit:cover;
+  }
+  .hero-video-caption{
+    display:block;text-align:center;
+    font-family:'Poppins',sans-serif;font-size:10.5px;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--gold-light);
+    padding:8px 0;background:rgba(28,5,12,.9);
+  }
+  @media (max-width:920px){
+    .hero-video-card{display:none;}
   }
 
   /* ===== SECTION GENERIC ===== */
@@ -372,6 +405,34 @@
 
   .catering-gallery{margin-top:60px;}
 
+  .catalog-block{
+    margin-top:70px;
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+    align-items:center;
+    background:var(--maroon-dark);
+    border-radius:8px;
+    padding:48px;
+    color:var(--cream);
+  }
+  .catalog-text .eyebrow{color:var(--gold-light);}
+  .catalog-text .eyebrow::before{background:var(--gold-light);}
+  .catalog-text h3{color:var(--cream);font-size:clamp(24px,3vw,32px);margin:14px 0 16px;}
+  .catalog-text p{color:rgba(251,246,236,.75);font-size:15px;line-height:1.7;margin-bottom:26px;}
+  .catalog-buttons{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-maroon{background:var(--gold);color:var(--maroon-deep);}
+  .btn-maroon:hover{background:var(--gold-light);}
+  .btn-outline-maroon{border:1px solid var(--gold-light);color:var(--gold-pale);background:transparent;}
+  .btn-outline-maroon:hover{background:rgba(233,205,122,.12);}
+  .catalog-preview{
+    background:#3a3a3a;border-radius:6px;overflow:hidden;
+    height:360px;box-shadow:var(--shadow);
+  }
+  .catalog-preview embed{border:none;display:block;}
+  @media (max-width:920px){
+    .catalog-block{grid-template-columns:1fr;padding:32px 24px;}
+    .catalog-preview{height:300px;order:-1;}
+  }
+
   /* ===== CONTACT ===== */
   .contact-section{background:var(--ivory);}
   .contact-grid{
@@ -410,14 +471,17 @@
   }
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
   textarea{resize:vertical;min-height:90px;}
-  .form-card .btn{margin-top:20px;width:100%;justify-content:center;background:var(--maroon);color:var(--gold-pale);}
-  .form-card .btn:hover{background:var(--maroon-dark);}
-  .form-success{
-    display:none;margin-top:16px;padding:14px;border-radius:4px;
-    background:rgba(201,162,39,0.12);border:1px solid var(--gold);
-    font-size:13.5px;color:var(--maroon-dark);text-align:center;
+  .direct-contact-list{display:flex;flex-direction:column;gap:16px;}
+  .direct-contact-btn{
+    display:flex;align-items:center;gap:16px;
+    padding:18px 20px;border:1px solid var(--line);border-radius:5px;
+    background:var(--ivory);transition:all .25s;
   }
-  .form-success.show{display:block;}
+  .direct-contact-btn:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateY(-1px);}
+  .direct-contact-btn svg{width:24px;height:24px;fill:none;stroke:var(--maroon);stroke-width:1.5;flex-shrink:0;}
+  .direct-contact-btn span{display:flex;flex-direction:column;gap:2px;}
+  .direct-contact-btn strong{font-family:'Poppins',sans-serif;font-size:14px;color:var(--maroon-dark);}
+  .direct-contact-btn small{font-size:13px;color:var(--muted);}
 
   /* ===== FOOTER ===== */
   footer{
@@ -465,7 +529,7 @@
     </div>
     <a href="tel:+919876543210" class="phone-cta">
       <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
-      Call Now: 044-27225377
+      Call Now: +91 98765 43210
     </a>
   </div>
 </div>
@@ -474,8 +538,11 @@
 <header class="main-nav">
   <div class="nav-inner">
     <a href="#home" class="brand">
-      <span class="name">Arun Balaji</span>
-      <span class="tag">Party Hall &amp; Day To Day Catering</span>
+      <img src="assets/logo.jpg" alt="Arun Balaji Party Hall &amp; Day To Day Catering Services logo" class="logo-mark">
+      <span class="brand-text">
+        <span class="name">Arun Balaji</span>
+        <span class="tag">Party Hall &amp; Day To Day Catering</span>
+      </span>
     </a>
     <nav class="desktop-links" id="desktopLinks">
       <a href="#hall" data-link>Party Hall</a>
@@ -494,6 +561,7 @@
 
 <div class="overlay" id="overlay"></div>
 <nav class="mobile-menu" id="mobileMenu">
+  <img src="assets/logo.jpg" alt="Arun Balaji Party Hall logo" class="mobile-logo">
   <a href="#hall" data-link>Party Hall</a>
   <a href="#catering" data-link>Catering</a>
   <a href="#about" data-link>About Us</a>
@@ -514,6 +582,13 @@
       <a href="#hall" class="btn btn-gold">Book Party Hall</a>
       <a href="#catering" class="btn btn-outline">Explore Catering</a>
     </div>
+  </div>
+
+  <div class="hero-video-card">
+    <video autoplay muted loop playsinline aria-label="Arun Balaji Party Hall and Day To Day Catering Services logo reveal">
+      <source src="assets/logo-reveal.mp4" type="video/mp4">
+    </video>
+    <span class="hero-video-caption">Our Brand</span>
   </div>
 </section>
 
@@ -642,6 +717,21 @@
       <a href="#" class="g5"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" alt="Catering dessert spread"></a>
       <a href="#"><img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=600&q=80" alt="Plated dish"></a>
     </div>
+
+    <div class="catalog-block">
+      <div class="catalog-text">
+        <span class="eyebrow">Full Menu</span>
+        <h3>Browse Our Complete Catering Catalog</h3>
+        <p>View every menu, snack, sweet, and package we offer, straight from our official catalog &mdash; open it inline or download a copy to share.</p>
+        <div class="catalog-buttons">
+          <a href="assets/day-to-day-catering-menu.pdf" target="_blank" rel="noopener" class="btn btn-maroon">View Catalog</a>
+          <a href="assets/day-to-day-catering-menu.pdf" download class="btn btn-outline-maroon">Download PDF</a>
+        </div>
+      </div>
+      <div class="catalog-preview">
+        <embed src="assets/day-to-day-catering-menu.pdf" type="application/pdf" width="100%" height="100%">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -663,15 +753,15 @@
           <h3>Arun Balaji Party Hall &amp; Day To Day Catering</h3>
           <div class="contact-row">
             <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
-            <div><div class="clabel">Phone</div><div class="cval">+91 9751323210 &nbsp;/&nbsp; +91 9360123457</div></div>
+            <div><div class="clabel">Phone</div><div class="cval">+91 98765 43210 &nbsp;/&nbsp; +91 91234 56789</div></div>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            <div><div class="clabel">Email</div><div class="cval">daytodaykpm@gmail.com</div></div>
+            <div><div class="clabel">Email</div><div class="cval">booking@arunbalajipartyhall.com</div></div>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            <div><div class="clabel">Address</div><div class="cval">No 7 Karpaga Vinayakar Koil St, Periya Kanchipuram, Tamil Nadu 631502</div></div>
+            <div><div class="clabel">Address</div><div class="cval">No. 7, Karpaga Vinayakar Koil Street, Periya Kanchipuram, Tamil Nadu 631502</div></div>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
@@ -679,47 +769,27 @@
           </div>
         </div>
         <div class="map-embed">
-          <iframe src="https://www.google.com/maps?q=Sriperumbudur,Tamil%20Nadu,India&output=embed" loading="lazy" allowfullscreen title="Location Map"></iframe>
+          <iframe src="https://www.google.com/maps?q=No+7+Karpaga+Vinayakar+Koil+St,+Periya+Kanchipuram,+Tamil+Nadu+631502&output=embed" loading="lazy" allowfullscreen title="Location Map"></iframe>
         </div>
       </div>
 
       <div class="form-card">
-        <h3>Booking Enquiry</h3>
-        <p>Tell us about your event and we'll get back to you shortly.</p>
-        <form id="enquiryForm">
-          <div class="form-grid">
-            <div>
-              <label for="fname">Full Name</label>
-              <input type="text" id="fname" required placeholder="Your name">
-            </div>
-            <div>
-              <label for="fphone">Phone Number</label>
-              <input type="tel" id="fphone" required placeholder="+91 XXXXX XXXXX">
-            </div>
-            <div class="full">
-              <label for="fservice">Interested In</label>
-              <select id="fservice">
-                <option>Party Hall Booking</option>
-                <option>Catering Service</option>
-                <option>Both Hall &amp; Catering</option>
-              </select>
-            </div>
-            <div>
-              <label for="fdate">Event Date</label>
-              <input type="date" id="fdate">
-            </div>
-            <div>
-              <label for="fguests">Guest Count</label>
-              <input type="number" id="fguests" placeholder="e.g. 300">
-            </div>
-            <div class="full">
-              <label for="fmsg">Message</label>
-              <textarea id="fmsg" placeholder="Tell us about your event..."></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn">Send Enquiry</button>
-          <div class="form-success" id="formSuccess">Thank you! Your enquiry has been received &mdash; our team will contact you within 24 hours.</div>
-        </form>
+        <h3>Reach Us Directly</h3>
+        <p>We're just a call, message, or email away &mdash; choose whichever is easiest for you.</p>
+        <div class="direct-contact-list">
+          <a href="tel:+919876543210" class="direct-contact-btn">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
+            <span><strong>Call Us</strong><small>+91 98765 43210</small></span>
+          </a>
+          <a href="https://wa.me/919751323210" target="_blank" rel="noopener" class="direct-contact-btn">
+            <svg viewBox="0 0 24 24"><path d="M20.5 3.5a10.6 10.6 0 0 0-17.9 10L2 21l7.7-.6a10.6 10.6 0 0 0 10.8-17z"/><path d="M8.5 8.5c.3 3 3 5.7 6 6l1-1.6-2.3-1-1 1a6 6 0 0 1-2.6-2.6l1-1-1-2.3z"/></svg>
+            <span><strong>WhatsApp</strong><small>+91 97513 23210</small></span>
+          </a>
+          <a href="mailto:booking@arunbalajipartyhall.com" class="direct-contact-btn">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <span><strong>Email Us</strong><small>booking@arunbalajipartyhall.com</small></span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -805,13 +875,6 @@
       tab.classList.add('active');
       document.getElementById(tab.dataset.menu).classList.add('active');
     });
-  });
-
-  // Enquiry form
-  document.getElementById('enquiryForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    document.getElementById('formSuccess').classList.add('show');
-    this.reset();
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
