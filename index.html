@@ -214,7 +214,7 @@
     overflow:hidden;
     background:var(--maroon-deep);
   }
-  .hero-bg-image{
+  .hero-bg-video{
     position:absolute;inset:0;
     width:100%;height:100%;
     object-fit:cover;
@@ -590,7 +590,19 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <img class="hero-bg-image" src="https://i.postimg.cc/dtGkg3Cq/Image-25-07-26-at-4-07-PM.jpg" alt="Arun Balaji Party Hall decorated interior" aria-hidden="true">
+  <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="https://www.image2url.com/r2/default/videos/1785003647496-c73e5985-e4ae-418f-848b-e51ac421605f.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow"></span>
+    <h1>Arun Balaji &<br><em></em> Day To Day Catering</h1>
+    <p class="lead">Arun Balaji Party Hall and Day To Day Catering Services come together to host your wedding, reception, Birthday party etc...</p>
+    <div class="hero-buttons">
+      <a href="#hall" class="btn btn-gold">Book Party Hall</a>
+      <a href="#catering" class="btn btn-outline">Explore Catering</a>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT + STATS -->
@@ -603,9 +615,9 @@
       </div>
       <div class="about-text">
         <span class="eyebrow">Our Story</span>
-        <h2 style="margin:14px 0 20px;">Two Names, One Promise of Perfection</h2>
-        <p>For over a decade, Arun Balaji Party Hall has opened its doors to weddings, receptions, birthdays, and corporate gatherings, offering a spacious, elegant setting built for celebration.</p>
-        <p>Alongside, Day To Day Catering Services brings authentic South Indian and multi-cuisine hospitality to every table &mdash; from live counters to traditional banana-leaf feasts &mdash; ensuring every guest leaves delighted.</p>
+        <h2 style="margin:14px 0 20px;">Just a Brief about us </h2>
+        <p>For over a decade, Arun Balaji Party Hall has opened its doors to weddings, receptions, birthdays and baby shower offering a spacious elegant setting built for celebration.</p>
+        <p>Alongside, Day To Day Catering Services brings authentic South Indian foods and hospitality from live counters to traditional banana-leaf feasts ensuring every guest leaves delighted.</p>
         <p>Together, we handle the venue and the feast so you can simply enjoy the occasion.</p>
       </div>
     </div>
@@ -614,7 +626,7 @@
       <div class="stat"><div class="num">1,500<span>+</span></div><div class="label">Orders Delivered</div></div>
       <div class="stat"><div class="num">500<span>+</span></div><div class="label">Events Hosted</div></div>
       <div class="stat"><div class="num">10<span>+</span></div><div class="label">Years of Experience</div></div>
-      <div class="stat"><div class="num">1,200<span>+</span></div><div class="label">Guest Capacity</div></div>
+      <div class="stat"><div class="num">200<span>+</span></div><div class="label">Guest Capacity</div></div>
     </div>
   </div>
 </section>
@@ -628,7 +640,7 @@
       <div class="arch-row">
         <svg width="70" height="20" viewBox="0 0 70 20"><path d="M2 20 C2 8 68 8 68 20" fill="none" stroke="#c9a227" stroke-width="1.3"/></svg>
       </div>
-      <p>A spacious, air-conditioned hall designed for grand South Indian weddings and celebrations, with a dedicated stage, ample parking, and a private guest suite &mdash; hosting only one event at a time for complete exclusivity.</p>
+      <p>A spacious, air-conditioned hall designed for grand South Indian weddings and celebrations, with a dedicated stage, spacious parking and a private room - hosting only one event at a time for complete exclusivity.</p>
     </div>
 
     <div class="gallery-grid">
@@ -645,21 +657,21 @@
       <div class="highlight-card">
         <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v3H3v-3z"/><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M3 21v-3M21 21v-3"/></svg>
         <h4>Full A/C Comfort</h4>
-        <p>Climate-controlled main hall &amp; prefunction area for guest comfort year-round.</p>
+        <p>Air conditioned main hall &amp; Air Conditioned dining hall.</p>
       </div>
       <div class="highlight-card">
         <svg viewBox="0 0 24 24"><path d="M9 18V6l10 6-10 6z"/><rect x="3" y="5" width="3" height="14"/></svg>
-        <h4>Premium Sound &amp; Stage</h4>
-        <p>Professional sound system, lighting rig, and a dedicated elevated stage.</p>
+        <h4>Quality Food</h4>
+        <p>We provide quality food and we have spacious dining hall.</p>
       </div>
       <div class="highlight-card">
         <svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><circle cx="7.5" cy="16.5" r="1"/><circle cx="16.5" cy="16.5" r="1"/></svg>
-        <h4>Ample Parking</h4>
+        <h4>Parking</h4>
         <p>Secure on-site parking for cars and two-wheelers with valet on request.</p>
       </div>
       <div class="highlight-card">
         <svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
-        <h4>Private Guest Suites</h4>
+        <h4>Private rooms</h4>
         <p>Comfortable bride &amp; groom suites for getting ready in privacy.</p>
       </div>
     </div>
@@ -675,41 +687,10 @@
       <div class="arch-row">
         <svg width="70" height="20" viewBox="0 0 70 20"><path d="M2 20 C2 8 68 8 68 20" fill="none" stroke="#4a0e1f" stroke-width="1.3"/></svg>
       </div>
-      <p>Authentic South Indian &amp; multi-cuisine menus, live counters, and traditional banana-leaf service &mdash; crafted fresh for every wedding, reception, and celebration.</p>
+      <p>Authentic South Indian &amp; flexible menus, live counters and traditional banana-leaf service crafted fresh for every wedding, reception and celebration.</p>
     </div>
 
-    <div class="menu-tabs">
-      <button class="menu-tab active" data-menu="starters">Starters</button>
-      <button class="menu-tab" data-menu="main">Main Course</button>
-      <button class="menu-tab" data-menu="desserts">Desserts</button>
-    </div>
-
-    <div class="menu-panel active" id="starters">
-      <div class="menu-item"><div><div class="mi-name">Gobi 65</div><div class="mi-desc">Crispy fried cauliflower, South Indian spice</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Chicken Chettinad Starter</div><div class="mi-desc">Spiced dry-roasted chicken bites</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Paneer Tikka</div><div class="mi-desc">Char-grilled cottage cheese skewers</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Sweet Corn Soup</div><div class="mi-desc">Live counter, served hot</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Baby Corn Manchurian</div><div class="mi-desc">Indo-Chinese live counter favorite</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Fish Fry</div><div class="mi-desc">Coastal-style marinated fish</div></div><div class="mi-dot"></div></div>
-    </div>
-
-    <div class="menu-panel" id="main">
-      <div class="menu-item"><div><div class="mi-name">Traditional Banana Leaf Meal</div><div class="mi-desc">Sambar, rasam, kootu, poriyal &amp; more</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Biryani Live Counter</div><div class="mi-desc">Mutton, chicken &amp; veg dum biryani</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Chapati &amp; Kurma</div><div class="mi-desc">Soft chapatis with mixed veg kurma</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Curd Rice &amp; Pickle</div><div class="mi-desc">Classic South Indian comfort finish</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Chicken Chettinad Curry</div><div class="mi-desc">Rich, spiced gravy specialty</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Dal Tadka</div><div class="mi-desc">Slow-cooked lentils, ghee tempering</div></div><div class="mi-dot"></div></div>
-    </div>
-
-    <div class="menu-panel" id="desserts">
-      <div class="menu-item"><div><div class="mi-name">Semiya Payasam</div><div class="mi-desc">Vermicelli in sweet milk, cardamom</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Gulab Jamun</div><div class="mi-desc">Warm, syrup-soaked classic</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Fruit Salad with Ice Cream</div><div class="mi-desc">Fresh seasonal fruit, live counter</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Rava Kesari</div><div class="mi-desc">Semolina sweet, saffron &amp; ghee</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Badam Halwa</div><div class="mi-desc">Rich almond halwa</div></div><div class="mi-dot"></div></div>
-      <div class="menu-item"><div><div class="mi-name">Live Ice Cream Counter</div><div class="mi-desc">Assorted flavours, made to order</div></div><div class="mi-dot"></div></div>
-    </div>
+    
 
     <div class="gallery-grid catering-gallery">
       <a href="#" class="cg-wide"><img src="https://i.postimg.cc/ZK0ZJf5K/(1).jpg" alt="Banana leaf feast"></a>
@@ -746,7 +727,7 @@
       <div class="arch-row">
         <svg width="70" height="20" viewBox="0 0 70 20"><path d="M2 20 C2 8 68 8 68 20" fill="none" stroke="#4a0e1f" stroke-width="1.3"/></svg>
       </div>
-      <p>Reach out for a site visit, menu tasting, or booking enquiry &mdash; our team responds within 24 hours.</p>
+      <p>Reach out for a site visit or booking enquiry &mdash; our team responds within 24 hours.</p>
     </div>
 
     <div class="contact-grid">
@@ -802,7 +783,7 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
-              <span>Free site visit &amp; menu tasting before you confirm your date</span>
+              <span>Visit Site &amp; Conform menu before you book your event</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
